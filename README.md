@@ -16,6 +16,8 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+If MongoDB reports `querySrv ECONNREFUSED`, set `MONGODB_DNS_SERVERS` in `.env` to a reachable DNS resolver for your network. Multiple resolvers can be comma-separated.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

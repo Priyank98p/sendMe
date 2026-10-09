@@ -44,37 +44,35 @@ const UserSchema: Schema<User> = new Schema({
       /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g,
       "Valid email is required",
     ],
-
-    password: {
-      type: String,
-      required: [true, "Password is required"],
-    },
-    verifyCode: {
-      type: String,
-      required: [true, "Verify code is required"],
-    },
-
-    codeExpiry: {
-      type: Date,
-      required: [true, "Verify code expiry is required"],
-    },
-
-    isVerified: {
-      type: Boolean,
-      default: false,
-    },
-
-    isAcceptingMessages: {
-      type: Boolean,
-      default: true,
-    },
-
-    messages: [MessageSchema],
   },
+  password: {
+    type: String,
+    required: [true, "Password is required"],
+  },
+  verifyCode: {
+    type: String,
+    required: [true, "Verify code is required"],
+  },
+
+  codeExpiry: {
+    type: Date,
+    required: [true, "Verify code expiry is required"],
+  },
+
+  isVerified: {
+    type: Boolean,
+    default: false,
+  },
+
+  isAcceptingMessages: {
+    type: Boolean,
+    default: true,
+  },
+  messages: [MessageSchema],
 });
 
-const UserModel =
+const User =
   (mongoose.models.User as mongoose.Model<User>) ||
   mongoose.model("user", UserSchema)<User>;
 
-export default UserModel;
+export default User;
